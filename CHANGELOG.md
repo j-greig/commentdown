@@ -2,7 +2,7 @@
 
 ## 2026-05-09 — Standards pass
 
-- Removed public-doc frontmatter, added principles/compatibility, tightened wording.
+- Kept spec frontmatter, added principles/compatibility, tightened wording.
 
 ## 2026-05-09 — Public spec polish
 

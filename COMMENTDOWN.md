@@ -1,3 +1,19 @@
+---
+title: Commentdown 1.2
+status: draft
+description: Terse project-agnostic Commentdown 1.2 spec.
+commentdown:
+  version: "1.2"
+  profile: minimal
+  registry:
+    handles:
+      maintainer: {kind: human, role: arbitrator}
+      agent-driver: {kind: agent, role: driver}
+      agent-reviewer: {kind: agent, role: reviewer}
+    arbitration:
+      spec_changes: maintainer
+---
+
 # Commentdown 1.2
 
 Append-only structured comments in markdown for multi-actor project work.
