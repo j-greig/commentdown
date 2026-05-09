@@ -1,20 +1,3 @@
----
-title: Agent-to-Agent Loop Runbook
-status: draft
-description: Optional Codex and Claude workflow on top of Commentdown.
-commentdown:
-  version: "1.2"
-  profile: minimal
-  registry:
-    handles:
-      maintainer: {kind: human, role: arbitrator}
-      codex-driver: {kind: agent, role: driver}
-      claude-reviewer: {kind: agent, role: reviewer}
-      claude-driver: {kind: agent, role: implementer}
-    arbitration:
-      spec_changes: maintainer
----
-
 # Agent-to-Agent Loop Runbook
 
 Practical recipe for running Codex `/goal` and Claude `/loop` together with
@@ -128,7 +111,7 @@ Recommended, not required:
 - frequent small commits;
 - CD-only commit body may be empty;
 - mixed commit body cites CD ID for decision context;
-- never duplicate the full Commentdown entry in the commit message.
+- never duplicate the full Commentdown entry in the commit message;
 - choose one home for detail: CD for coordination/rationale, commit for code
   delta.
 

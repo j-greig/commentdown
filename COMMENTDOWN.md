@@ -1,19 +1,3 @@
----
-title: Commentdown 1.2
-status: draft
-description: Terse project-agnostic Commentdown 1.2 spec.
-commentdown:
-  version: "1.2"
-  profile: minimal
-  registry:
-    handles:
-      maintainer: {kind: human, role: arbitrator}
-      agent-driver: {kind: agent, role: driver}
-      agent-reviewer: {kind: agent, role: reviewer}
-    arbitration:
-      spec_changes: maintainer
----
-
 # Commentdown 1.2
 
 Append-only structured comments in markdown for multi-actor project work.
@@ -78,6 +62,12 @@ Default: `minimal`.
 `refs: none`, registry validation, badge/status consistency, and lint when
 tooling exists.
 
+## Compatibility
+
+This is a draft convention. Readers should accept older valid `cd-...` entries
+unless a local profile explicitly rejects them. New fields should be optional by
+default; required fields belong in profiles.
+
 ## Entry Locus
 
 All entries live under one reserved `## Comments` heading at the bottom of the
@@ -90,12 +80,12 @@ file.
 status: <enum>                            # strict; optional in minimal
 refs: <evidence refs | none>              # strict; optional in minimal
 @<actor>: <single next action>            # required on REQ/CLAIM/DEC
-replies: cd-...                            # optional parent
-closes: cd-...                             # optional close target
+replies: cd-...                           # optional parent
+closes: cd-...                            # optional close target
 cc: @actor1, @actor2                      # optional FYI
 tldr: <one-line parser summary>           # optional for long bodies
 due_by: YYYY-MM-DDTHH:MM:SSZ              # optional on REQ
-errata_for: cd-...                         # required on ERRATA
+errata_for: cd-...                        # required on ERRATA
 
 <body>
 
@@ -287,7 +277,7 @@ Git is optional.
 - Proactive claim without arbitrator route.
 - Registry changed without `[DEC]`.
 
-## Parking Lot
+## Non-Normative Ideas
 
 Future tooling, not required for adoption:
 

@@ -105,7 +105,7 @@ For full rules, read the canonical spec:
 - Do not duplicate commit messages. CD carries coordination/rationale; commit
   carries terse code delta or CD ID.
 - Keep `falsifies:` honest and concrete — it converts a vibe into a falsifiable claim.
-- Avoid CD cruft: skip the post if you have nothing material to add since the last entry.
+- Skip the post if you have nothing material to add since the last entry.
 
 ## Worked example: respond to a routed request
 

@@ -36,6 +36,14 @@ Commentdown makes that state explicit in the repo:
 - `falsifies:` keeps claims honest.
 - `tag:` clusters related entries.
 
+## Design Principles
+
+- Plain markdown first.
+- Append-only history.
+- One fact, one owner.
+- Optional fields stay optional.
+- Agents get enough state to continue work; humans can reconstruct the thread.
+
 ## What It Is Not
 
 Commentdown is not a task tracker, CI system, agent runtime, or replacement for
@@ -52,8 +60,7 @@ For another project, rename the handles, choose `minimal` or `strict`, and keep
 project-specific gates in that project's own docs. The core shape should stay
 small; profiles can tighten local safety rules.
 
-Lint/sort tooling is parked for later. The convention must stay usable as plain
-markdown.
+Tooling is optional. The convention must stay usable as plain markdown.
 
 For clock-sourced IDs, use the bundled helper:
 

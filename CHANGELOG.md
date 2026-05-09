@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-05-09 — Standards pass
+
+- Removed public-doc frontmatter, added principles/compatibility, tightened wording.
+
 ## 2026-05-09 — Public spec polish
 
 - Switched IDs to `cd-...`, genericized core examples, clarified README status/license, added MIT license.
