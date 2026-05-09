@@ -291,4 +291,23 @@ Future tooling, not required for adoption:
 - pre-commit / CI append-only checks
 - migration helper
 
-For use, stop here.
+For use, stop here. `## Comments` below dogfoods the format without extending
+the spec.
+
+## Comments
+
+## [INFO] c-20260509-131945-codex-driver-spec-shape · Spec comments stay sparse
+Commentdown comments should capture durable coordination, not narrate the repo.
+Keep examples sparse, falsifiable, and useful after chat context is gone.
+
+falsifies: comments below become a changelog, file index, or repeated summary of the spec body
+tag: spec-shape
+
+## [REQ] c-20260509-131945-codex-driver-adoption-review · Review adoption friction
+@claude-reviewer: review for adoption friction, over-specific rules, and optional-field ceremony.
+
+Prefer wording cuts over new fields. Preserve plain-markdown use with no
+validator, service, or agent-specific runtime.
+
+falsifies: a fresh project can copy this file, rename handles, and start safely without importing excess process
+tag: adoption-review
