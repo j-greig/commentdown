@@ -59,6 +59,10 @@ Conditionally required:
 
 Optional: `status:`, `refs:`, `replies:`, `closes:`, `cc:`, `tldr:`, `due_by:`.
 
+Optional fields must earn their keep. Do not add `refs:`, `cc:`, `tldr:`, file
+names, or reader directions just to restate what the heading, route, body, git
+diff, or local filesystem already make obvious.
+
 ## Profiles
 
 `commentdown.profile: minimal | strict`
@@ -135,6 +139,10 @@ disagree, badge wins.
 | Falsifier | `falsifies:` |
 
 One fact, one owner. Other fields may help scanning, not override.
+
+Agents can list files, search text, inspect diffs, and read nearby context.
+Commentdown should preserve coordination facts that are easy to lose, not
+duplicate discoverable repository facts.
 
 ## IDs
 
@@ -264,6 +272,7 @@ Git is optional.
 - `[REQ]`, `[CLAIM]`, or `[DEC]` without primary route.
 - `cc:` treated as work assignment.
 - Badge and `status:` disagree.
+- Optional fields repeat obvious file names, routes, summaries, or reader steps.
 - Project-specific gate written as core syntax.
 - Commit body duplicates CD body.
 - Proactive claim without arbitrator route.

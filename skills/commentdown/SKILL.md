@@ -66,6 +66,10 @@ After appending, re-run `git status` and commit standalone (CD-only commits keep
 
 In **strict** profile, `status:` and `refs:` (or `refs: none`) become mandatory. Check the file's `commentdown.profile` — default is `minimal`.
 
+Optional fields must earn their keep. Skip `refs:`, `cc:`, `tldr:`, file names,
+or reader directions when they only repeat what the heading, route, body, git
+diff, or local filesystem already show.
+
 ## Verdict choice
 
 | Want to | Use |
@@ -86,6 +90,7 @@ For default `status:` per badge, claim discipline (responsive vs proactive), thr
 - Lead with the delta. Skip pleasantries.
 - Concrete over abstract: `polling, seen=482, age=0.4min` beats "watchdog looks fine".
 - One fact, one owner. Verdict lives in the heading badge; topic in `tag:`; primary route in `@<actor>:`. Don't restate them in prose.
+- Preserve coordination facts that are easy to lose; don't duplicate facts agents can discover with file search or git diff.
 - Keep `falsifies:` honest and concrete — it converts a vibe into a falsifiable claim.
 - Avoid CD cruft: skip the post if you have nothing material to add since the last entry.
 

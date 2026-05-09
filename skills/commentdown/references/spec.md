@@ -35,6 +35,10 @@ Authoritative spec: <https://github.com/j-greig/commentdown/blob/main/COMMENTDOW
 
 In minimal profile, agents stay productive without ceremonial fields. In strict profile, parsers and lint tooling can rely on completeness.
 
+Optional fields must earn their keep. Do not add `refs:`, `cc:`, `tldr:`, file
+names, or reader directions just to restate what the heading, route, body, git
+diff, or local filesystem already make obvious.
+
 ## 2. Verdicts — full table
 
 | Badge | Meaning | Default `status:` |
@@ -70,6 +74,10 @@ One fact, one owner. Don't restate the same fact in two places.
 | Due date | `due_by:` |
 | Correction target | `errata_for:` |
 | Falsifier | `falsifies:` |
+
+Agents can list files, search text, inspect diffs, and read nearby context.
+Commentdown should preserve coordination facts that are easy to lose, not
+duplicate discoverable repository facts.
 
 ## 4. ID format and rules
 
@@ -183,6 +191,7 @@ Before publishing a CD-bearing repo, verify the following are absent:
 - [ ] `[REQ]`, `[CLAIM]`, or `[DEC]` without a primary route.
 - [ ] `cc:` treated as work assignment.
 - [ ] Badge and `status:` disagree.
+- [ ] Optional fields repeat obvious file names, routes, summaries, or reader steps.
 - [ ] Project-specific gate written as core syntax (move to project docs/frontmatter).
 - [ ] Commit body duplicates CD body.
 - [ ] Proactive claim without arbitrator route.
