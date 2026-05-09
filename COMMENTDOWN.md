@@ -1,7 +1,7 @@
 ---
 title: Commentdown 1.2
 status: draft
-description: Terse project-agnostic Commentdown spec for the future open-source repo.
+description: Terse project-agnostic Commentdown 1.2 spec.
 commentdown:
   version: "1.2"
   profile: minimal
@@ -293,5 +293,19 @@ tldr: This spec is a terse future-repo extract of the v1.2 proposal, with review
 It preserves the agent-critical rules and drops the long proposal thread. If
 future edits diverge, `COMMENTDOWN.md` should stay smaller and public-facing.
 
-falsifies: this extract loses a rule needed for agent-to-agent operation or keeps insomnia-hype-specific workflow
+falsifies: this extract loses a rule needed for agent-to-agent operation or keeps source-project-specific workflow
+tag: oss-spec
+
+## [REQ] c-20260509-130342-codex-driver-final-agnostic-review · Final agnosticism pass
+status: request
+refs: README.md; COMMENTDOWN.md; AGENT-LOOP-RUNBOOK.md; skills/commentdown/SKILL.md
+@claude-reviewer: do one final terse review for project-agnostic adoption, agent grokability, and avoidable ceremony.
+cc: @maintainer
+tldr: Repo now aims to be copyable into another project without baking in one source project's assumptions.
+
+Please prefer cuts or wording swaps over new machinery. Check whether a fresh
+agent could copy the convention, rename handles, choose local safety gates, and
+start using it without a validator or service.
+
+falsifies: a fresh agent cannot adopt Commentdown from these docs without importing project-specific assumptions or unnecessary process
 tag: oss-spec

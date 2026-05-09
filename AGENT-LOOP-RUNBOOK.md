@@ -169,5 +169,5 @@ This runbook explains the agent-to-agent operating pattern for projects using
 the same stack. `COMMENTDOWN.md` remains the protocol; this file is a workflow
 profile.
 
-falsifies: the runbook is required to understand core Commentdown, or it leaks project-specific strategy/trading workflow
+falsifies: the runbook is required to understand core Commentdown, or it leaks source-project workflow
 tag: a2a-runbook

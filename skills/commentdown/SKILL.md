@@ -126,7 +126,7 @@ git commit -m "docs: cd api rollback criteria"
 
 - Not the spec. The spec at `https://github.com/j-greig/commentdown` is authoritative; this skill is a how-to for agents writing valid entries.
 - Not project-specific. Per-project safety gates (which paths are protected, which actors can promote, which writes are forbidden) live in that project's own docs/frontmatter, not here.
-- Not an orchestrator. Skill helps you write one entry correctly; coordination across multiple entries / files / EPICs is the agent loop's job.
+- Not an orchestrator. Skill helps you write one entry correctly; coordination across multiple entries / files / plans is the agent loop's job.
 
 ## Deeper reference
 

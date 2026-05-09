@@ -59,12 +59,16 @@ Commentdown makes that state explicit in the repo:
 Commentdown is not a task tracker, CI system, agent runtime, or replacement for
 good prose. It is the thin coordination layer under those tools.
 
-## Install
+## Adopt
 
 There is nothing to install for the markdown convention.
 
 Copy the shape from [COMMENTDOWN.md](COMMENTDOWN.md), add a `## Comments`
 section to a markdown file, and start appending entries.
+
+For another project, rename the handles, choose `minimal` or `strict`, and keep
+project-specific gates in that project's own docs. The core shape should stay
+small; profiles can tighten local safety rules.
 
 Tooling ideas such as `commentdown lint`, `commentdown id`, and
 `commentdown sort` are parked for later. The convention must stay usable as
@@ -98,9 +102,8 @@ workflow profile, not core Commentdown.
 
 ## Project Status
 
-Commentdown is an early private repo. The current candidate spec is
-Commentdown 1.2. It is designed to be project-agnostic and plain-markdown
-first.
+Commentdown is an early repo. The current candidate spec is Commentdown 1.2. It
+is designed to be project-agnostic and plain-markdown first.
 
 ## Comments
 
