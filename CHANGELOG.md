@@ -2,7 +2,7 @@
 
 ## 2026-05-09 — Dry comments and single spec source
 
-- Cut skill/spec duplication; added dry comment and no commit/CD duplication guidance.
+- Removed duplicated skill reference spec; added dry comment and no commit/CD duplication guidance.
 
 ## 2026-05-09 — Skill iteration after dual-agent review
 
