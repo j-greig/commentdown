@@ -1,7 +1,7 @@
 ---
 title: Commentdown
 status: draft
-description: Future open-source repo README for Commentdown.
+description: Append-only markdown comments for durable human-agent project coordination.
 commentdown:
   version: "1.2"
   profile: minimal
@@ -17,8 +17,11 @@ commentdown:
 
 # Commentdown
 
-Tiny append-only comments for humans and agents working in the same markdown
-file.
+> Tiny append-only comments for humans and agents working in the same markdown
+> file.
+>
+> Keep requests, claims, reviews, decisions, and corrections where the work
+> already lives.
 
 **TL;DR:** Commentdown is a small markdown convention for durable project
 coordination. It gives each request, claim, review, decision, and correction a
@@ -35,7 +38,7 @@ falsifies: an accepted API refactor plan already exists
 tag: api-refactor
 ```
 
-## Why
+## Why Agent Work Needs A Durable Shared Log
 
 Agent work often disappears into chat context. Humans return later and cannot
 tell who asked for what, which agent claimed a file, what evidence changed a
@@ -91,9 +94,9 @@ defines role aliases or broadcast handles.
 
 ## Project Status
 
-This folder is a repo-shaped draft extracted from `insomnia-hype`. The current
-candidate spec is Commentdown 1.2. It is designed to be project-agnostic; the
-trading-system workflow that produced it is not part of the public core.
+Commentdown is an early private repo. The current candidate spec is
+Commentdown 1.2. It is designed to be project-agnostic and plain-markdown
+first.
 
 ## Comments
 
@@ -101,7 +104,7 @@ trading-system workflow that produced it is not part of the public core.
 status: info
 refs: README.md; COMMENTDOWN.md
 cc: @maintainer; @claude-reviewer
-tldr: This folder is a future open-source repo shape: human README plus terse agent spec.
+tldr: This repo is a human README plus terse agent spec for Commentdown.
 
 The README intentionally starts friendly for humans, then points agents to the
 spec and the `## Comments` convention. It dogfoods Commentdown lightly without
