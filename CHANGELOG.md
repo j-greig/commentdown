@@ -10,3 +10,5 @@ Initial private repo seed.
   append-only human/agent markdown coordination.
 - Added `AGENT-LOOP-RUNBOOK.md` as an optional Codex-Claude workflow profile on
   top of Commentdown.
+- Added `skills/commentdown` with a portable `SKILL.md`, Codex metadata,
+  reference note, and deterministic ID helper.

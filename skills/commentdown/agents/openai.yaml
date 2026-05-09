@@ -1,0 +1,7 @@
+interface:
+  display_name: "Commentdown"
+  short_description: "Append-only markdown comments for agents"
+  default_prompt: "Use $commentdown to append a valid Commentdown entry to this markdown file."
+
+policy:
+  allow_implicit_invocation: true
