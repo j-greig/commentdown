@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Print a deterministic Commentdown 1.2 comment ID.
 
-Format: c-YYYYMMDD-HHMMSS-<author>-<slug>[-NN]
+Format: cd-YYYYMMDD-HHMMSS-<author>-<slug>[-NN]
 
 UTC, second resolution. Author/slug must match ^[a-z0-9-]+$. Author may be
 passed with or without a leading '@'. Optional collision suffix in [1, 99].
@@ -9,7 +9,7 @@ passed with or without a leading '@'. Optional collision suffix in [1, 99].
 Usage:
   python3 cd_id.py <author> <slug> [collision]
   python3 cd_id.py reviewer api-pass
-  python3 cd_id.py @codex-driver api-b4 7
+  python3 cd_id.py @agent-driver api-b4 7
 
 Spec: https://github.com/j-greig/commentdown/blob/main/COMMENTDOWN.md
 Stdlib only. No external dependencies.
@@ -32,7 +32,7 @@ def cid(author: str, slug: str, collision: int | None = None) -> str:
         raise SystemExit(f"collision must be in [1, 99] (got {collision})")
     ts = datetime.now(UTC).strftime("%Y%m%d-%H%M%S")
     suf = f"-{collision:02d}" if collision is not None else ""
-    return f"c-{ts}-{a}-{s}{suf}"
+    return f"cd-{ts}-{a}-{s}{suf}"
 
 
 def main(argv: list[str]) -> int:

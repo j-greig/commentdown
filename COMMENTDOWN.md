@@ -8,9 +8,8 @@ commentdown:
   registry:
     handles:
       maintainer: {kind: human, role: arbitrator}
-      codex-driver: {kind: agent, role: driver}
-      codex-reviewer: {kind: agent, role: reviewer}
-      claude-reviewer: {kind: agent, role: reviewer}
+      agent-driver: {kind: agent, role: driver}
+      agent-reviewer: {kind: agent, role: reviewer}
     arbitration:
       spec_changes: maintainer
 ---
@@ -36,8 +35,8 @@ claims honest; `tag:` clusters topics.
 ## Minimal Entry
 
 ```markdown
-## [REQ] c-20260509-120000-maintainer-api-plan · Scope API refactor
-@codex-driver: propose the smallest safe refactor plan.
+## [REQ] cd-20260509-120000-maintainer-api-plan · Scope API refactor
+@agent-driver: propose the smallest safe refactor plan.
 
 Need a plan that preserves current routes and names risky files.
 
@@ -87,16 +86,16 @@ file.
 ## Shape
 
 ```text
-## [<verdict>] c-YYYYMMDD-HHMMSS-<author>-<slug>[-<nn>] · <scan title>
+## [<verdict>] cd-YYYYMMDD-HHMMSS-<author>-<slug>[-<nn>] · <scan title>
 status: <enum>                            # strict; optional in minimal
 refs: <evidence refs | none>              # strict; optional in minimal
 @<actor>: <single next action>            # required on REQ/CLAIM/DEC
-replies: c-...                            # optional parent
-closes: c-...                             # optional close target
+replies: cd-...                            # optional parent
+closes: cd-...                             # optional close target
 cc: @actor1, @actor2                      # optional FYI
 tldr: <one-line parser summary>           # optional for long bodies
 due_by: YYYY-MM-DDTHH:MM:SSZ              # optional on REQ
-errata_for: c-...                         # required on ERRATA
+errata_for: cd-...                         # required on ERRATA
 
 <body>
 
@@ -150,7 +149,7 @@ headings, or reading paths.
 
 ## IDs
 
-Format: `c-YYYYMMDD-HHMMSS-<author>-<slug>[-<nn>]`
+Format: `cd-YYYYMMDD-HHMMSS-<author>-<slug>[-<nn>]`
 
 Rules:
 
@@ -163,7 +162,7 @@ Rules:
 Portable sources:
 
 ```bash
-date -u +'c-%Y%m%d-%H%M%S-<author>-<slug>'
+date -u +'cd-%Y%m%d-%H%M%S-<author>-<slug>'
 ```
 
 ```python
@@ -177,7 +176,7 @@ if not (SLUG.fullmatch(author) and SLUG.fullmatch(slug)):
     raise SystemExit("author/slug must match ^[a-z0-9-]+$")
 if suffix and not (1 <= int(sys.argv[3]) <= 99):
     raise SystemExit("collision must be 1..99")
-print(f"c-{datetime.now(UTC):%Y%m%d-%H%M%S}-{author}-{slug}{suffix}")
+print(f"cd-{datetime.now(UTC):%Y%m%d-%H%M%S}-{author}-{slug}{suffix}")
 ```
 
 ## Registry
@@ -189,8 +188,8 @@ commentdown:
   registry:
     handles:
       maintainer: {kind: human, role: arbitrator}
-      codex-driver: {kind: agent, role: driver}
-      claude-reviewer: {kind: agent, role: reviewer}
+      agent-driver: {kind: agent, role: driver}
+      agent-reviewer: {kind: agent, role: reviewer}
     arbitration:
       spec_changes: maintainer
 ```
@@ -299,20 +298,20 @@ Future tooling, not required for adoption:
 - pre-commit / CI append-only checks
 - migration helper
 
-For use, stop here. `## Comments` below dogfoods the format without extending
-the spec.
+For use, stop here. `## Comments` below illustrates the format without
+extending the spec.
 
 ## Comments
 
-## [INFO] c-20260509-131945-codex-driver-spec-shape · Spec comments stay sparse
+## [INFO] cd-20260509-131945-agent-driver-spec-shape · Spec comments stay sparse
 Commentdown comments should capture durable coordination, not narrate the repo.
 Keep examples sparse, falsifiable, and useful after chat context is gone.
 
 falsifies: comments below become a changelog, file index, or repeated summary of the spec body
 tag: spec-shape
 
-## [REQ] c-20260509-131945-codex-driver-adoption-review · Review adoption friction
-@claude-reviewer: review for adoption friction, over-specific rules, and optional-field ceremony.
+## [REQ] cd-20260509-131945-agent-driver-adoption-review · Review adoption friction
+@agent-reviewer: review for adoption friction, over-specific rules, and optional-field ceremony.
 
 Prefer wording cuts over new fields. Preserve plain-markdown use with no
 validator, service, or agent-specific runtime.

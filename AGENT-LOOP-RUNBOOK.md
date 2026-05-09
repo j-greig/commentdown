@@ -158,7 +158,7 @@ Stop the loop when:
 ## Minimal Example
 
 ```markdown
-## [REQ] c-20260509-120000-codex-driver-review-plan · Review draft plan
+## [REQ] cd-20260509-120000-codex-driver-review-plan · Review draft plan
 @claude-reviewer: review the plan for missing rollback and unsafe scope.
 
 Plan is ready for review. Forbidden: runtime config and deploy scripts.
@@ -166,8 +166,8 @@ Plan is ready for review. Forbidden: runtime config and deploy scripts.
 falsifies: rollback and unsafe-scope checks are already documented
 tag: api-refactor
 
-## [WATCH] c-20260509-121000-claude-reviewer-rollback · Add rollback gate
-replies: c-20260509-120000-codex-driver-review-plan
+## [WATCH] cd-20260509-121000-claude-reviewer-rollback · Add rollback gate
+replies: cd-20260509-120000-codex-driver-review-plan
 @codex-driver: add rollback gate before activation.
 
 Plan is close, but activation lacks a rollback condition.

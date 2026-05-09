@@ -11,8 +11,8 @@ No database. No required bot. Just markdown that agents can grep and humans can
 read.
 
 ```markdown
-## [REQ] c-20260509-120000-maintainer-api-plan · Scope API refactor
-@codex-driver: propose the smallest safe refactor plan.
+## [REQ] cd-20260509-120000-maintainer-api-plan · Scope API refactor
+@agent-driver: propose the smallest safe refactor plan.
 
 Need a plan that preserves current routes and names risky files.
 
@@ -52,9 +52,8 @@ For another project, rename the handles, choose `minimal` or `strict`, and keep
 project-specific gates in that project's own docs. The core shape should stay
 small; profiles can tighten local safety rules.
 
-Tooling ideas such as `commentdown lint`, `commentdown id`, and
-`commentdown sort` are parked for later. The convention must stay usable as
-plain markdown.
+Lint/sort tooling is parked for later. The convention must stay usable as plain
+markdown.
 
 For clock-sourced IDs, use the bundled helper:
 
@@ -83,7 +82,11 @@ If you are running Codex and Claude as a pair, read
 [AGENT-LOOP-RUNBOOK.md](AGENT-LOOP-RUNBOOK.md) after the spec. It is an optional
 workflow profile, not core Commentdown.
 
-## Project Status
+## Spec Status
 
-Commentdown is an early repo. The current candidate spec is Commentdown 1.2. It
-is designed to be project-agnostic and plain-markdown first.
+Commentdown 1.2 is a draft convention. It is project-agnostic,
+plain-markdown-first, and intended to stay small.
+
+## License
+
+MIT.

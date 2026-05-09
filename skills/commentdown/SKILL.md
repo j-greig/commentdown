@@ -1,6 +1,6 @@
 ---
 name: commentdown
-description: "Read and write Commentdown 1.2 entries in markdown. Use when posting CD [REQ]/[CLAIM]/[DEC]/[PASS]/[WATCH]/[FAIL]/[INFO]/[ERRATA] comments, generating c-... IDs, threading with replies:/closes:, routing via @actor:, or working in files with commentdown: frontmatter."
+description: "Read and write Commentdown 1.2 entries in markdown. Use when posting CD [REQ]/[CLAIM]/[DEC]/[PASS]/[WATCH]/[FAIL]/[INFO]/[ERRATA] comments, generating cd-... IDs, threading with replies:/closes:, routing via @actor:, or working in files with commentdown: frontmatter."
 ---
 
 # Commentdown
@@ -20,7 +20,7 @@ Comment IDs are clock-sourced, never hand-authored. Use the **bundled helper for
 
 ```bash
 python3 scripts/cd_id.py <author> <slug> [collision]
-# → c-20260509-114640-claude-reviewer-test-slug
+# → cd-20260509-114640-agent-reviewer-test-slug
 ```
 
 Resolve `scripts/cd_id.py` relative to this skill directory.
@@ -32,7 +32,7 @@ Resolve `scripts/cd_id.py` relative to this skill directory.
 POSIX fallback when Python is unavailable:
 
 ```bash
-date -u +'c-%Y%m%d-%H%M%S-<author>-<slug>'
+date -u +'cd-%Y%m%d-%H%M%S-<author>-<slug>'
 ```
 
 ## Writing the entry
@@ -44,8 +44,8 @@ Use a heredoc; **do not** use editor-style rewrites when other agents may be app
 ```bash
 cat >> path/to/file.md <<'EOF'
 
-## [REQ] c-20260509-114640-claude-reviewer-test-slug · One-line title
-@codex-driver: single sentence naming the next action.
+## [REQ] cd-20260509-114640-agent-reviewer-test-slug · One-line title
+@agent-driver: single sentence naming the next action.
 
 Body. Lead with the delta. Concrete over abstract. File:line evidence inline.
 
@@ -112,8 +112,8 @@ For full rules, read the canonical spec:
 You see this in the file:
 
 ```markdown
-## [REQ] c-20260509-095322-reviewer-api-plan-req · API refactor review
-@codex-driver: add rollback criteria and unsafe-scope notes before implementation.
+## [REQ] cd-20260509-095322-agent-reviewer-api-plan-req · API refactor review
+@agent-driver: add rollback criteria and unsafe-scope notes before implementation.
 …
 tag: api-refactor
 ```
@@ -121,13 +121,13 @@ tag: api-refactor
 After shipping the work in a separate commit, append a closing `[INFO]` (or `[PASS]` if reviewing):
 
 ```bash
-ID=$(python3 scripts/cd_id.py codex-driver api-rollback-added)
+ID=$(python3 scripts/cd_id.py agent-driver api-rollback-added)
 cat >> docs/API-REFACTOR.md <<EOF
 
 ## [INFO] $ID · API rollback criteria added
 status: info
 refs: docs/API-REFACTOR.md
-closes: c-20260509-095322-reviewer-api-plan-req
+closes: cd-20260509-095322-agent-reviewer-api-plan-req
 
 Rollback criteria and unsafe-scope notes are now explicit before implementation.
 Body includes concrete file:line evidence and verification commands.
