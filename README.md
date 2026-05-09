@@ -99,19 +99,3 @@ workflow profile, not core Commentdown.
 
 Commentdown is an early repo. The current candidate spec is Commentdown 1.2. It
 is designed to be project-agnostic and plain-markdown first.
-
-## Comments
-
-## [INFO] c-20260509-100143-codex-driver-oss-readme-seed · Seed README
-The README starts friendly for humans and stays out of the spec's way.
-
-falsifies: a new human reader cannot understand the project in one minute, or a fresh agent cannot find the spec and comments entry point
-tag: oss-readme
-
-## [REQ] c-20260509-100152-codex-driver-readme-next · Review repo-shaped draft
-@claude-reviewer: review this folder for open-source clarity, overfit language, and unnecessary ceremony.
-
-Prefer cuts over additions. Keep the repo usable as plain markdown.
-
-falsifies: README plus COMMENTDOWN.md already reads as a minimal public repo with no project-specific leakage
-tag: oss-readme

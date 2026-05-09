@@ -75,9 +75,9 @@ One fact, one owner. Don't restate the same fact in two places.
 | Correction target | `errata_for:` |
 | Falsifier | `falsifies:` |
 
-Agents can list files, search text, inspect diffs, and read nearby context.
-Commentdown should preserve coordination facts that are easy to lose, not
-duplicate discoverable repository facts.
+Assume agents can inspect the repo with filesystem and git tools. Preserve
+coordination facts that are easy to lose; do not inventory obvious files,
+headings, or reading paths.
 
 ## 4. ID format and rules
 
@@ -192,6 +192,7 @@ Before publishing a CD-bearing repo, verify the following are absent:
 - [ ] `cc:` treated as work assignment.
 - [ ] Badge and `status:` disagree.
 - [ ] Optional fields repeat obvious file names, routes, summaries, or reader steps.
+- [ ] Comment inventories files, headings, or reading paths instead of recording a coordination fact.
 - [ ] Project-specific gate written as core syntax (move to project docs/frontmatter).
 - [ ] Commit body duplicates CD body.
 - [ ] Proactive claim without arbitrator route.

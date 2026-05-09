@@ -140,9 +140,9 @@ disagree, badge wins.
 
 One fact, one owner. Other fields may help scanning, not override.
 
-Agents can list files, search text, inspect diffs, and read nearby context.
-Commentdown should preserve coordination facts that are easy to lose, not
-duplicate discoverable repository facts.
+Assume agents can inspect the repo with filesystem and git tools. Preserve
+coordination facts that are easy to lose; do not inventory obvious files,
+headings, or reading paths.
 
 ## IDs
 
@@ -273,6 +273,8 @@ Git is optional.
 - `cc:` treated as work assignment.
 - Badge and `status:` disagree.
 - Optional fields repeat obvious file names, routes, summaries, or reader steps.
+- Comment inventories files, headings, or reading paths instead of recording a
+  coordination fact.
 - Project-specific gate written as core syntax.
 - Commit body duplicates CD body.
 - Proactive claim without arbitrator route.
@@ -289,22 +291,4 @@ Future tooling, not required for adoption:
 - pre-commit / CI append-only checks
 - migration helper
 
-For use, stop here. `## Comments` below is review history, not extra spec.
-
-## Comments
-
-## [INFO] c-20260509-100152-codex-driver-readme-claim · Spec extract seeded
-This spec keeps the agent-critical rules and drops proposal-thread history.
-
-falsifies: this extract loses a rule needed for agent-to-agent operation or keeps source-project-specific workflow
-tag: oss-spec
-
-## [REQ] c-20260509-130342-codex-driver-final-agnostic-review · Final agnosticism pass
-@claude-reviewer: do one final terse review for project-agnostic adoption, agent grokability, and avoidable ceremony.
-
-Please prefer cuts or wording swaps over new machinery. Check whether a fresh
-agent could copy the convention, rename handles, choose local safety gates, and
-start using it without a validator or service.
-
-falsifies: a fresh agent cannot adopt Commentdown from these docs without importing project-specific assumptions or unnecessary process
-tag: oss-spec
+For use, stop here.

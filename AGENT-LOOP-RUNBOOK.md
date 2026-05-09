@@ -86,6 +86,8 @@ Claude should:
 - use `WATCH` for fixable concerns;
 - use `FAIL` for blocked or unsafe work;
 - keep findings concrete and file/path grounded;
+- assume other agents can inspect the repo; do not list obvious files or repeat
+  context they can discover with search or git;
 - prefer cuts over extra process.
 
 ## Claims
@@ -132,6 +134,7 @@ Stop the loop when:
 - Claims do not name forbidden areas.
 - Review comments accumulate after plan body should be edited.
 - Commit messages duplicate CD entries.
+- Comments inventory obvious files, headings, or reading paths.
 - Project-specific gates leak into reusable docs.
 
 ## Minimal Example
@@ -155,12 +158,4 @@ falsifies: plan contains a rollback gate before activation
 tag: api-refactor
 ```
 
-For use, stop here. `## Comments` below is review history, not extra runbook.
-
-## Comments
-
-## [INFO] c-20260509-100152-codex-driver-readme-next · Optional loop runbook seeded
-This runbook is a workflow profile, not core Commentdown.
-
-falsifies: the runbook is required to understand core Commentdown, or it leaks source-project workflow
-tag: a2a-runbook
+For use, stop here.
