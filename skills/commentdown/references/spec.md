@@ -4,6 +4,8 @@ The minimal-profile how-to is in `SKILL.md`. This file covers the rules that don
 
 Authoritative spec: <https://github.com/j-greig/commentdown/blob/main/COMMENTDOWN.md>. This file paraphrases for fast agent lookup; if it disagrees with the spec, the spec wins.
 
+> **Paraphrase sync metadata.** Last reconciled against `COMMENTDOWN.md` on **2026-05-09** (CD spec version `1.2`). When the upstream spec evolves, re-sync this file and bump this line; if a future agent finds the dates lag the spec by more than a week, treat this paraphrase as stale and read the URL above first.
+
 ## Table of contents
 
 1. Profiles (minimal vs strict)

@@ -1,6 +1,6 @@
 ---
 name: commentdown
-description: "Read and write Commentdown 1.2 entries in markdown. Use when posting CD [REQ]/[CLAIM]/[DEC]/[PASS]/[WATCH]/[FAIL]/[INFO]/[ERRATA] comments, generating c-... IDs, threading with replies:/closes:, routing via @actor:, or working in files with commentdown: frontmatter."
+description: "Read and write Commentdown 1.2 entries in markdown. Use when posting CD [REQ]/[CLAIM]/[DEC]/[PASS]/[WATCH]/[FAIL]/[INFO]/[ERRATA] comments, generating c-... IDs, threading with replies:/closes:, routing via @actor:, or working in files with commentdown: frontmatter. Triggers: 'commentdown', 'CD post', 'CD Claude', 'CD Codex', 'append to Commentdown', 'respond to this [REQ]', 'close this CD thread', 'make a CD ID', 'what's a CD ID for ...', 'make a /tmp starter prompt with CD tasks'."
 ---
 
 # Commentdown
@@ -16,7 +16,7 @@ Append-only structured comments in markdown. One log per file under `## Comments
 
 ## Generating the ID — never guess
 
-Comment IDs are clock-sourced, never hand-authored. Use the bundled helper:
+Comment IDs are clock-sourced, never hand-authored. Use the **bundled helper form** that ships with this skill:
 
 ```bash
 python3 scripts/cd_id.py <author> <slug> [collision]
@@ -25,7 +25,9 @@ python3 scripts/cd_id.py <author> <slug> [collision]
 
 Resolve `scripts/cd_id.py` relative to this skill directory.
 
-`<author>` is your registered handle (with or without `@`). `<slug>` is `^[a-z0-9-]+$`, lowercased, ≤ ~16 chars, semantic. `[collision]` is `1..99`, only when another entry already shares the second-resolution timestamp + author + slug.
+`<author>` is your registered handle (with or without `@`). `<slug>` is `^[a-z0-9-]+$`, lowercased, ≤ ~16 chars, semantic. `[collision]` is a positional `1..99`, only when another entry already shares the second-resolution timestamp + author + slug.
+
+> **Project helpers may have a different CLI shape.** Some adopting repos ship their own `commentdown_id.py` with a `--collision <nn>` flag instead of the positional form. Both are valid — the bundled helper is the one this skill is documented against; if a project supplies a different CLI, follow its `--help` output.
 
 POSIX fallback when Python is unavailable:
 
@@ -51,6 +53,8 @@ falsifies: <what evidence would overturn this entry>
 tag: <topic-cluster>
 EOF
 ```
+
+> **Host-agent variant.** If your host agent forbids shell writes (e.g., Codex's `apply_patch`-only file-edit mode), use its sanctioned append/edit primitive instead — but preserve the append-only semantics exactly: a single new entry at the end of `## Comments`, no rewrite of any prior entry, immediate `git status` re-check before committing.
 
 After appending, re-run `git status` and commit standalone (CD-only commits keep the audit trail clean).
 
@@ -84,7 +88,9 @@ local filesystem already show.
 | Report state, no verdict | `[INFO]` |
 | Correct a factual error in a prior entry | `[ERRATA]` (with `errata_for:`) |
 
-For default `status:` per badge, claim discipline (responsive vs proactive), threading rules, registry mechanics, append-only contract, git profile, and the full common-mistakes list, see `references/spec.md`.
+> **Proactive `[CLAIM]` warning.** If you take work without a parent `[REQ]`, the claim is *proactive* and **must route to an arbitrator** (per the registry's `arbitration:` block) with a one-line explanation of why the work was not requested first. Responsive claims (with `replies:` to a parent `[REQ]`) route to whoever the REQ asked for the work.
+
+For default `status:` per badge, full claim discipline (responsive vs proactive lifecycle, TTL), threading rules, registry mechanics, append-only contract, git profile, and the full common-mistakes list, see `references/spec.md`.
 
 ## Style
 
