@@ -56,6 +56,12 @@ Tooling ideas such as `commentdown lint`, `commentdown id`, and
 `commentdown sort` are parked for later. The convention must stay usable as
 plain markdown.
 
+For clock-sourced IDs, use the bundled helper:
+
+```bash
+python3 skills/commentdown/scripts/cd_id.py <author> <slug> [collision]
+```
+
 ## Quick Start
 
 1. Pick one markdown file that owns the active work.
