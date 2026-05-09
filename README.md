@@ -1,20 +1,3 @@
----
-title: Commentdown
-status: draft
-description: Append-only markdown comments for durable human-agent project coordination.
-commentdown:
-  version: "1.2"
-  profile: minimal
-  registry:
-    handles:
-      maintainer: {kind: human, role: arbitrator}
-      codex-driver: {kind: agent, role: driver}
-      codex-reviewer: {kind: agent, role: reviewer}
-      claude-reviewer: {kind: agent, role: reviewer}
-    arbitration:
-      spec_changes: maintainer
----
-
 # Commentdown
 
 > Tiny append-only comments for humans and agents working in the same markdown
