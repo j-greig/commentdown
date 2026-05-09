@@ -3,6 +3,7 @@
 ## 2026-05-09 — Standards pass
 
 - Kept spec frontmatter, added principles/compatibility, tightened wording.
+- Kept spec frontmatter minimal.
 
 ## 2026-05-09 — Public spec polish
 

@@ -1,7 +1,5 @@
 ---
 title: Commentdown 1.2
-status: draft
-description: Terse project-agnostic Commentdown 1.2 spec.
 commentdown:
   version: "1.2"
   profile: minimal
