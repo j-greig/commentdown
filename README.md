@@ -1,15 +1,14 @@
 # Commentdown
 
-> Tiny append-only comments for humans and agents working in the same markdown
-> file.
->
-> Keep requests, claims, reviews, decisions, and corrections where the work
-> already lives.
+## Tiny append-only comments for humans and agents working in the same markdown file
 
-**TL;DR:** Commentdown is a small markdown convention for durable project
-coordination. It gives each request, claim, review, decision, and correction a
-stable ID, a route, a falsifier, and a topic tag. No service. No database. No
-required bot. Just markdown that agents can grep and humans can read.
+Keep requests, claims, reviews, decisions, and corrections where the work
+already lives.
+
+Commentdown is a small markdown convention for durable project coordination.
+Each entry gets a stable ID, a route, a falsifier, and a topic tag. No service.
+No database. No required bot. Just markdown that agents can grep and humans can
+read.
 
 ```markdown
 ## [REQ] c-20260509-120000-maintainer-api-plan · Scope API refactor
@@ -21,7 +20,7 @@ falsifies: an accepted API refactor plan already exists
 tag: api-refactor
 ```
 
-## Why Agent Work Needs A Durable Shared Log
+## Why It Exists
 
 Agent work often disappears into chat context. Humans return later and cannot
 tell who asked for what, which agent claimed a file, what evidence changed a
