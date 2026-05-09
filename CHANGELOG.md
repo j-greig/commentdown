@@ -8,3 +8,5 @@ Initial private repo seed.
   and light Commentdown dogfood.
 - Added `COMMENTDOWN.md` with the terse Commentdown 1.2 draft spec for
   append-only human/agent markdown coordination.
+- Added `AGENT-LOOP-RUNBOOK.md` as an optional Codex-Claude workflow profile on
+  top of Commentdown.

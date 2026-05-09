@@ -92,6 +92,10 @@ Read this order:
 Then answer only entries routed to your exact handle, unless the file's profile
 defines role aliases or broadcast handles.
 
+If you are running Codex and Claude as a pair, read
+[AGENT-LOOP-RUNBOOK.md](AGENT-LOOP-RUNBOOK.md) after the spec. It is an optional
+workflow profile, not core Commentdown.
+
 ## Project Status
 
 Commentdown is an early private repo. The current candidate spec is
