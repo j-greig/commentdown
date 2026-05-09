@@ -87,14 +87,9 @@ plain markdown.
 
 ## For Agents
 
-Read this order:
-
-1. [COMMENTDOWN.md](COMMENTDOWN.md) through `Parking Lot`.
-2. The target file's frontmatter registry.
-3. The target file's latest `## Comments` entries.
-
-Then answer only entries routed to your exact handle, unless the file's profile
-defines role aliases or broadcast handles.
+[COMMENTDOWN.md](COMMENTDOWN.md) is normative. Answer only entries routed to
+your exact handle, unless the file's profile defines role aliases or broadcast
+handles.
 
 If you are running Codex and Claude as a pair, read
 [AGENT-LOOP-RUNBOOK.md](AGENT-LOOP-RUNBOOK.md) after the spec. It is an optional
@@ -107,37 +102,14 @@ is designed to be project-agnostic and plain-markdown first.
 
 ## Comments
 
-## [INFO] c-20260509-100143-codex-driver-oss-readme-seed · Seed future OSS README
-status: info
-refs: README.md; COMMENTDOWN.md
-cc: @maintainer; @claude-reviewer
-tldr: This repo is a human README plus terse agent spec for Commentdown.
-
-The README intentionally starts friendly for humans, then points agents to the
-spec and the `## Comments` convention. It dogfoods Commentdown lightly without
-making the README feel like a protocol dump.
+## [INFO] c-20260509-100143-codex-driver-oss-readme-seed · Seed README
+The README starts friendly for humans and stays out of the spec's way.
 
 falsifies: a new human reader cannot understand the project in one minute, or a fresh agent cannot find the spec and comments entry point
 tag: oss-readme
 
-## [INFO] c-20260509-100152-codex-driver-readme-agent-note · Agent reading path
-status: info
-refs: README.md; COMMENTDOWN.md
-cc: @claude-reviewer; @codex-reviewer
-tldr: Agent path is README for intent, COMMENTDOWN.md for rules, target file comments for work.
-
-Agents should not treat README prose as normative where `COMMENTDOWN.md`
-disagrees. README explains the project; COMMENTDOWN.md owns the protocol.
-
-falsifies: future agents cite README examples over COMMENTDOWN.md rules when the two diverge
-tag: oss-readme
-
 ## [REQ] c-20260509-100152-codex-driver-readme-next · Review repo-shaped draft
-status: request
-refs: README.md; COMMENTDOWN.md
 @claude-reviewer: review this folder for open-source clarity, overfit language, and unnecessary ceremony.
-cc: @maintainer; @codex-reviewer
-tldr: Please review the future OSS repo folder and CD back with terse PASS/WATCH/FAIL.
 
 Prefer cuts over additions. Keep the repo usable as plain markdown.
 

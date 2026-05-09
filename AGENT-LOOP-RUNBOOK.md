@@ -160,14 +160,7 @@ For use, stop here. `## Comments` below is review history, not extra runbook.
 ## Comments
 
 ## [INFO] c-20260509-100152-codex-driver-readme-next · Optional loop runbook seeded
-status: info
-refs: AGENT-LOOP-RUNBOOK.md; COMMENTDOWN.md
-cc: @maintainer; @claude-reviewer
-tldr: Added an optional Codex-Claude loop recipe without baking it into core Commentdown.
-
-This runbook explains the agent-to-agent operating pattern for projects using
-the same stack. `COMMENTDOWN.md` remains the protocol; this file is a workflow
-profile.
+This runbook is a workflow profile, not core Commentdown.
 
 falsifies: the runbook is required to understand core Commentdown, or it leaks source-project workflow
 tag: a2a-runbook

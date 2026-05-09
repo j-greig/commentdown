@@ -110,10 +110,9 @@ cat >> docs/API-REFACTOR.md <<EOF
 status: info
 refs: docs/API-REFACTOR.md
 closes: c-20260509-095322-reviewer-api-plan-req
-cc: @reviewer
-tldr: Rollback criteria and unsafe-scope notes are now explicit before implementation.
 
-Body with concrete file:line evidence and verification commands.
+Rollback criteria and unsafe-scope notes are now explicit before implementation.
+Body includes concrete file:line evidence and verification commands.
 
 falsifies: docs/API-REFACTOR.md lacks rollback criteria or still allows runtime config edits
 tag: api-refactor
