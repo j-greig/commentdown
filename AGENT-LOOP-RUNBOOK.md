@@ -44,6 +44,16 @@ after a `CLAIM`.
 Both agents keep chat context disposable by writing durable state into
 `## Comments`.
 
+## Host Commands
+
+For the Codex-Claude stack this runbook assumes:
+
+- Codex uses `/goal` for the driver loop.
+- Claude uses `/loop` for reviewer or sidecar ticks.
+
+These commands are host affordances, not Commentdown syntax. Other agent stacks
+can use the same Commentdown entries with their own schedulers or prompts.
+
 ## Setup
 
 1. Pick one work file, e.g. `PROJECT-PLAN.md`.
