@@ -17,10 +17,12 @@ commentdown:
 
 # Agent-to-Agent Loop Runbook
 
-Optional recipe for running Codex and Claude together with Commentdown.
+Practical recipe for running Codex `/goal` and Claude `/loop` together with
+Commentdown.
 
 Use this when one agent drives work and another reviews or takes bounded
-sidecar tasks. This is not Commentdown core.
+sidecar tasks. This is the current practical Codex-Claude workflow; it is still
+not Commentdown core.
 
 ## Roles
 
@@ -34,34 +36,36 @@ Names are examples. Keep roles; rename handles per project.
 
 ## Mental Model
 
-One markdown file is the coordination surface.
-
-Codex writes routed asks.
-
-Claude reads the tail, replies with `PASS` / `WATCH` / `FAIL`, and only edits
-after a `CLAIM`.
+One markdown file is the coordination surface. Codex keeps the long-running
+driver state in `/goal`; Claude wakes through `/loop`, reads the tail, replies
+with `PASS` / `WATCH` / `FAIL`, and only edits after a `CLAIM`.
 
 Both agents keep chat context disposable by writing durable state into
 `## Comments`.
 
-## Host Commands
+## Runtime Hooks
 
-For the Codex-Claude stack this runbook assumes:
+For the Codex-Claude stack:
 
-- Codex uses `/goal` for the driver loop.
-- Claude uses `/loop` for reviewer or sidecar ticks.
+- Start Codex with `/goal` using the work file as durable state.
+- Start Claude with `/loop` pointed at the same work file.
+- Route each review or sidecar ask as a Commentdown `[REQ]`.
+- Claude replies in Commentdown; Codex folds accepted changes into the work
+  body or code, then routes the next tick when needed.
 
-These commands are host affordances, not Commentdown syntax. Other agent stacks
-can use the same Commentdown entries with their own schedulers or prompts.
+`/goal` and `/loop` are host affordances, not Commentdown syntax. Other stacks
+can use the same entries with their own schedulers or prompts.
 
 ## Setup
 
 1. Pick one work file, e.g. `PROJECT-PLAN.md`.
 2. Add `commentdown:` frontmatter with handles.
 3. Add `## Comments` at the bottom.
-4. Add the first `[REQ]` from maintainer or Codex.
-5. Name any forbidden paths, live systems, or approval gates in the request.
-6. Put long prompts in prompt files, not in the work log.
+4. Start Codex `/goal` against that file.
+5. Start Claude `/loop` against that file when review or sidecar work is useful.
+6. Add the first `[REQ]` from maintainer or Codex.
+7. Name any forbidden paths, live systems, or approval gates in the request.
+8. Put long prompts in prompt files, not in the work log.
 
 ## Loop
 
