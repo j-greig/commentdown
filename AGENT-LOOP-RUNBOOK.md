@@ -102,6 +102,7 @@ Claude should:
 - keep findings concrete and file/path grounded;
 - assume other agents can inspect the repo; do not list obvious files or repeat
   context they can discover with search or git;
+- skip praise, speed notes, and process recap;
 - prefer cuts over extra process.
 
 ## Claims
@@ -128,6 +129,8 @@ Recommended, not required:
 - CD-only commit body may be empty;
 - mixed commit body cites CD ID for decision context;
 - never duplicate the full Commentdown entry in the commit message.
+- choose one home for detail: CD for coordination/rationale, commit for code
+  delta.
 
 ## Stop Conditions
 
@@ -148,6 +151,7 @@ Stop the loop when:
 - Claims do not name forbidden areas.
 - Review comments accumulate after plan body should be edited.
 - Commit messages duplicate CD entries.
+- Comments include praise, timing commentary, or chat recap.
 - Comments inventory obvious files, headings, or reading paths.
 - Project-specific gates leak into reusable docs.
 

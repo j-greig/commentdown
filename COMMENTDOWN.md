@@ -63,6 +63,10 @@ Optional fields must earn their keep. Do not add `refs:`, `cc:`, `tldr:`, file
 names, or reader directions just to restate what the heading, route, body, git
 diff, or local filesystem already make obvious.
 
+Primary audience is other agents. Humans should be able to reconstruct what
+happened, but CD entries are not status prose. Keep them dry: no praise, speed
+notes, process theatre, or chatty recap. Sentence fragments are fine if clear.
+
 ## Profiles
 
 `commentdown.profile: minimal | strict`
@@ -263,6 +267,8 @@ Git is optional.
 - CD-only commit: short subject naming doc or comment ID; body may be empty.
 - Mixed code/docs commit: summarize code delta; cite CD ID.
 - Link, do not paste, CD bodies into commit messages.
+- If the CD entry carries rationale, keep the commit terse. If the commit
+  explains the code delta, do not repeat it in CD.
 
 ## Common Mistakes
 
@@ -275,6 +281,8 @@ Git is optional.
 - Optional fields repeat obvious file names, routes, summaries, or reader steps.
 - Comment inventories files, headings, or reading paths instead of recording a
   coordination fact.
+- Comment praises speed, narrates process, or recaps chat instead of giving the
+  next agent useful state.
 - Project-specific gate written as core syntax.
 - Commit body duplicates CD body.
 - Proactive claim without arbitrator route.

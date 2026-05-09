@@ -1,6 +1,6 @@
 ---
 name: commentdown
-description: "Read and write Commentdown 1.2 entries in markdown. Use when posting CD [REQ]/[CLAIM]/[DEC]/[PASS]/[WATCH]/[FAIL]/[INFO]/[ERRATA] comments, generating c-... IDs, threading with replies:/closes:, routing via @actor:, or working in files with commentdown: frontmatter. Triggers: 'commentdown', 'CD post', 'CD Claude', 'CD Codex', 'append to Commentdown', 'respond to this [REQ]', 'close this CD thread', 'make a CD ID', 'what's a CD ID for ...', 'make a /tmp starter prompt with CD tasks'."
+description: "Read and write Commentdown 1.2 entries in markdown. Use when posting CD [REQ]/[CLAIM]/[DEC]/[PASS]/[WATCH]/[FAIL]/[INFO]/[ERRATA] comments, generating c-... IDs, threading with replies:/closes:, routing via @actor:, or working in files with commentdown: frontmatter."
 ---
 
 # Commentdown
@@ -75,6 +75,9 @@ filesystem and git tools. Skip `refs:`, `cc:`, `tldr:`, file names, or reader
 directions when they only repeat what the heading, route, body, git diff, or
 local filesystem already show.
 
+Primary audience is other agents. Keep entries dry and short. No praise, speed
+notes, process recap, or chatty status prose. Fragments are fine if clear.
+
 ## Verdict choice
 
 | Want to | Use |
@@ -90,7 +93,8 @@ local filesystem already show.
 
 > **Proactive `[CLAIM]` warning.** If you take work without a parent `[REQ]`, the claim is *proactive* and **must route to an arbitrator** (per the registry's `arbitration:` block) with a one-line explanation of why the work was not requested first. Responsive claims (with `replies:` to a parent `[REQ]`) route to whoever the REQ asked for the work.
 
-For default `status:` per badge, full claim discipline (responsive vs proactive lifecycle, TTL), threading rules, registry mechanics, append-only contract, git profile, and the full common-mistakes list, see `references/spec.md`.
+For full rules, read the canonical spec:
+<https://github.com/j-greig/commentdown/blob/main/COMMENTDOWN.md>.
 
 ## Style
 
@@ -98,6 +102,8 @@ For default `status:` per badge, full claim discipline (responsive vs proactive 
 - Concrete over abstract: `polling, seen=482, age=0.4min` beats "watchdog looks fine".
 - One fact, one owner. Verdict lives in the heading badge; topic in `tag:`; primary route in `@<actor>:`. Don't restate them in prose.
 - Preserve coordination facts that are easy to lose; don't inventory obvious files, headings, or reading paths.
+- Do not duplicate commit messages. CD carries coordination/rationale; commit
+  carries terse code delta or CD ID.
 - Keep `falsifies:` honest and concrete — it converts a vibe into a falsifiable claim.
 - Avoid CD cruft: skip the post if you have nothing material to add since the last entry.
 
@@ -139,13 +145,7 @@ git commit -m "docs: cd api rollback criteria"
 - Not project-specific. Per-project safety gates (which paths are protected, which actors can promote, which writes are forbidden) live in that project's own docs/frontmatter, not here.
 - Not an orchestrator. Skill helps you write one entry correctly; coordination across multiple entries / files / plans is the agent loop's job.
 
-## Deeper reference
+## Deeper Reference
 
-Read `references/spec.md` when:
-
-- Working in a `strict` profile and unsure which fields become mandatory.
-- Posting an `[ERRATA]` and need the correction-vs-revision rules.
-- Authoring a proactive `[CLAIM]` (no parent `[REQ]`) and need the arbitrator-routing rule.
-- Editing the `commentdown:` registry mid-thread (requires arbitrator `[DEC]`).
-- Debugging a "badge and `status:` disagree" issue.
-- Reading the full common-mistakes checklist before publishing a CD-bearing repo.
+`references/spec.md` is only a pointer to the canonical public spec. Do not
+maintain a second copy of the rules in the skill.
