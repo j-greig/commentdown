@@ -7,8 +7,8 @@ already lives.
 
 Commentdown is a small markdown convention for durable project coordination.
 Each entry gets a stable ID, a route, a falsifier, and a topic tag. No service.
-No database. No required bot. Just markdown that agents can grep and humans can
-read.
+No database. No required bot. Plain markdown that agents can grep and humans
+can read.
 
 ```markdown
 ## [REQ] cd-20260509-120000-maintainer-api-plan · Scope API refactor
@@ -73,10 +73,18 @@ For clock-sourced IDs, use the bundled helper:
 python3 skills/commentdown/scripts/cd_id.py <author> <slug> [collision]
 ```
 
+To find every CD-enabled doc in a repo later (frontmatter marker or a real
+entry under its `## Comments` heading — fenced examples don't count):
+
+```bash
+./scripts/cd_find.sh path/to/repo
+```
+
 ## Quick Start
 
 1. Pick one markdown file that owns the active work.
-2. Add `## Comments` at the bottom.
+2. Add `## Comments (newest first)` at the bottom (latest entry on top — the
+   1.3 default; `(oldest first)` gives the classic log).
 3. Register actor handles if routing could be ambiguous.
 4. Append `[REQ]` for asks.
 5. Append `[CLAIM]` before edits.
@@ -93,6 +101,12 @@ handles.
 If you are running Codex and Claude as a pair, read
 [AGENT-LOOP-RUNBOOK.md](AGENT-LOOP-RUNBOOK.md) after the spec. It is an optional
 workflow profile, not core Commentdown.
+
+## Worked Example
+
+[dev/v1.3-release.md](dev/v1.3-release.md) is a real thread: the 1.3 release
+was scoped, adversarially reviewed (two FAILs, then a PASS), and arbitrated
+inside its own `## Comments` section, by a human and two different agents.
 
 ## Spec Status
 

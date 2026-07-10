@@ -20,8 +20,9 @@ Names are examples. Keep roles; rename handles per project.
 ## Mental Model
 
 One markdown file is the coordination surface. Codex keeps the long-running
-driver state in `/goal`; Claude wakes through `/loop`, reads the tail, replies
-with `PASS` / `WATCH` / `FAIL`, and only edits after a `CLAIM`.
+driver state in `/goal`; Claude wakes through `/loop`, reads the latest entries
+(top of `## Comments` under newest-first; end of file under oldest-first),
+replies with `PASS` / `WATCH` / `FAIL`, and only edits after a `CLAIM`.
 
 Both agents keep chat context disposable by writing durable state into
 `## Comments`.
@@ -63,7 +64,8 @@ separates the discussion from the thing discussed. Keep one file until you genui
 Each reviewer tick:
 
 1. Read latest git status/log if the project uses git.
-2. Read the target file tail.
+2. Read the latest entries at the position the file's declared order puts them
+   (see spec §Order).
 3. Find entries routed to your handle.
 4. Check open `[CLAIM]` scopes before proposing edits.
 5. Reply with one `PASS`, `WATCH`, `FAIL`, `INFO`, or `CLAIM`.
@@ -85,7 +87,7 @@ Codex should:
 
 Claude should:
 
-- read the tail before replying;
+- read the latest entries (per the file's declared order) before replying;
 - avoid acting on `cc:`;
 - answer the latest routed request, not stale chat context;
 - use `WATCH` for fixable concerns;
