@@ -1,7 +1,7 @@
 ---
-title: Commentdown 1.3
+title: Commentdown 1.3.1
 commentdown:
-  version: "1.3"
+  version: "1.3.1"
   profile: minimal
   order: newest-first
   registry:
@@ -13,7 +13,7 @@ commentdown:
       spec_changes: maintainer
 ---
 
-# Commentdown 1.3
+# Commentdown 1.3.1
 
 Append-only structured comments in markdown for multi-actor project work.
 
@@ -41,7 +41,7 @@ claims honest; `tag:` clusters topics.
 
 Need a plan that preserves current routes and names risky files.
 
-falsifies: the current API already has a documented refactor plan with owners
+falsifies: wrong if the current API already has a documented refactor plan with owners
 tag: api-refactor
 ```
 
@@ -57,7 +57,14 @@ Conditionally required:
 - `@<actor>:` on `[REQ]`, `[CLAIM]`, `[DEC]`;
 - `errata_for:` on `[ERRATA]`.
 
-Placeholder values such as `TODO` do not satisfy `falsifies:`.
+Every entry MUST include `falsifies: wrong if ...`, followed by a
+realistically checkable condition that would make the entry materially wrong
+and change the next action. The text after `wrong if` MUST naturally complete
+"This entry is wrong if ...". It MUST NOT be a TODO, placeholder, or mere
+restatement. Prefer one condition; if several are needed, list them separately
+and say whether any one or all must hold. A `FAIL` MAY instead name concrete
+`PASS` conditions that would overturn it. Older documents' `falsifies:` values
+without the `wrong if` prefix remain valid.
 
 Optional: `status:`, `refs:`, `replies:`, `closes:`, `cc:`, `tldr:`, `due_by:`.
 
@@ -87,6 +94,18 @@ This is a draft convention. Readers should accept older valid `cd-...` entries
 unless a local profile explicitly rejects them. New fields should be optional by
 default; required fields belong in profiles.
 
+## Versioning
+
+Semantic versioning, kept simple:
+
+- **Patch** (1.3.x): wording, guidance, and clarity changes; no parsing changes.
+- **Minor** (1.x): new optional syntax or sections; older documents stay valid.
+- **Major** (2.0): breaking or renamed syntax. (A `wrong-if:` field key is
+  reserved for a future 2.0; in 1.x the serialized key stays `falsifies:`.)
+
+Documents declare the version they were written against. Readers accept older
+valid entries (see Compatibility).
+
 ## Entry Locus
 
 All entries live under one reserved `## Comments` heading at the bottom of the
@@ -99,7 +118,7 @@ comments-only file or folder.
 ## Order
 
 `commentdown.order: newest-first | oldest-first`. Default for documents
-declaring Commentdown 1.3: `newest-first`. Documents from earlier versions with
+declaring Commentdown 1.3 or later: `newest-first`. Documents from earlier versions with
 no `order` retain their existing physical order. On upgrade, set `order` to
 match that order; never reorder prior entries.
 
@@ -137,7 +156,7 @@ errata_for: cd-...                        # required on ERRATA
 
 <body>
 
-falsifies: <concrete evidence that would overturn this entry>
+falsifies: wrong if <condition that would overturn this entry>
 tag: <topic-cluster>
 ```
 
@@ -221,7 +240,7 @@ print(f"cd-{datetime.now(UTC):%Y%m%d-%H%M%S}-{author}-{slug}{suffix}")
 
 ```yaml
 commentdown:
-  version: "1.3"
+  version: "1.3.1"
   profile: minimal
   order: newest-first
   registry:

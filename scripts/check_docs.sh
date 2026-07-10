@@ -16,12 +16,12 @@ spec_ver="$(awk -F'"' '/^  version:/ {print $2; exit}' COMMENTDOWN.md)"
 [[ -n "$spec_ver" ]] || { echo "FAIL: no version in COMMENTDOWN.md frontmatter"; exit 1; }
 
 while IFS=: read -r file line text; do
-  ver="$(sed -E 's/.*Commentdown ([0-9]+\.[0-9]+).*/\1/' <<< "$text")"
+  ver="$(sed -E 's/.*Commentdown ([0-9]+\.[0-9]+(\.[0-9]+)?).*/\1/' <<< "$text")"
   if [[ "$ver" != "$spec_ver" ]]; then
     echo "FAIL: $file:$line says Commentdown $ver, spec is $spec_ver"
     fail=1
   fi
-done < <(grep -rn "Commentdown [0-9]\+\.[0-9]\+" README.md AGENT-LOOP-RUNBOOK.md skills/ install.sh 2>/dev/null || true)
+done < <(grep -rn "Commentdown [0-9]\+\.[0-9]\+\(\.[0-9]\+\)\?" README.md AGENT-LOOP-RUNBOOK.md skills/ install.sh 2>/dev/null || true)
 
 # 2. Stale phrases: wording that contradicts current spec defaults.
 #    Add a line here whenever a docs-drift bug is found — this list is the scar tissue.

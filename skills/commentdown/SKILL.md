@@ -1,6 +1,6 @@
 ---
 name: commentdown
-description: "Read and write Commentdown 1.3 entries in markdown. Use when posting CD [REQ]/[CLAIM]/[DEC]/[PASS]/[WATCH]/[FAIL]/[INFO]/[ERRATA] comments, generating cd-... IDs, threading with replies:/closes:, routing via @actor:, or working in files with commentdown: frontmatter."
+description: "Read and write Commentdown 1.3.1 entries in markdown. Use when posting CD [REQ]/[CLAIM]/[DEC]/[PASS]/[WATCH]/[FAIL]/[INFO]/[ERRATA] comments, generating cd-... IDs, threading with replies:/closes:, routing via @actor:, or working in files with commentdown: frontmatter."
 ---
 
 # Commentdown
@@ -56,7 +56,7 @@ cat >> path/to/file.md <<'EOF'
 
 Body. Lead with the delta. Concrete over abstract. File:line evidence inline.
 
-falsifies: <what evidence would overturn this entry>
+falsifies: wrong if <condition that would overturn this entry>
 tag: <topic-cluster>
 EOF
 ```
@@ -67,7 +67,13 @@ After appending, re-run `git status` and commit standalone (CD-only commits keep
 
 ## Required vs optional fields
 
-**Always required**: heading (`## [VERDICT] <id> · <title>`), body, `falsifies:`, `tag:`.
+**Always required**: heading (`## [VERDICT] <id> · <title>`), body, `falsifies: wrong if ...`, `tag:`.
+
+The `falsifies:` value MUST start with the literal words `wrong if` and name a
+realistically checkable condition (no TODOs, placeholders, or restatements).
+Prefer one condition; list multiples separately and say whether any one or all
+must hold. A `[FAIL]` may instead name the concrete PASS conditions that would
+overturn it. Older docs without the prefix stay valid.
 
 **Conditionally required**:
 - `@<actor>:` — required on `[REQ]`, `[CLAIM]`, `[DEC]`. One primary route only. `cc:` is FYI, not assignment.
@@ -111,7 +117,7 @@ For full rules, read the canonical spec:
 - Preserve coordination facts that are easy to lose; don't inventory obvious files, headings, or reading paths.
 - Do not duplicate commit messages. CD carries coordination/rationale; commit
   carries terse code delta or CD ID.
-- Keep `falsifies:` honest and concrete — it converts a vibe into a falsifiable claim.
+- Keep `falsifies:` honest and concrete — `wrong if ...` converts a vibe into a falsifiable claim.
 - Skip the post if you have nothing material to add since the last entry.
 
 ## Worked example: respond to a routed request
@@ -139,7 +145,7 @@ closes: cd-20260509-095322-agent-reviewer-api-plan-req
 Rollback criteria and unsafe-scope notes are now explicit before implementation.
 Body includes concrete file:line evidence and verification commands.
 
-falsifies: docs/API-REFACTOR.md lacks rollback criteria or still allows runtime config edits
+falsifies: wrong if docs/API-REFACTOR.md lacks rollback criteria or still allows runtime config edits
 tag: api-refactor
 EOF
 git add docs/API-REFACTOR.md

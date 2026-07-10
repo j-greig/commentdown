@@ -156,7 +156,7 @@ Stop the loop when:
 
 Plan is ready for review. Forbidden: runtime config and deploy scripts.
 
-falsifies: rollback and unsafe-scope checks are already documented
+falsifies: wrong if rollback and unsafe-scope checks are already documented
 tag: api-refactor
 
 ## [WATCH] cd-20260509-121000-claude-reviewer-rollback · Add rollback gate
@@ -165,7 +165,7 @@ replies: cd-20260509-120000-codex-driver-review-plan
 
 Plan is close, but activation lacks a rollback condition.
 
-falsifies: plan contains a rollback gate before activation
+falsifies: wrong if the plan contains a rollback gate before activation
 tag: api-refactor
 ```
 

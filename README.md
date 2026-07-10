@@ -16,7 +16,7 @@ can read.
 
 Need a plan that preserves current routes and names risky files.
 
-falsifies: an accepted API refactor plan already exists
+falsifies: wrong if an accepted API refactor plan already exists
 tag: api-refactor
 ```
 
@@ -33,7 +33,8 @@ Commentdown makes that state explicit in the repo:
 - ID says who/when.
 - `@actor:` says who acts next.
 - `replies:` and `closes:` thread the work.
-- `falsifies:` keeps claims honest.
+- `falsifies: wrong if ...` keeps claims honest (every entry names what would
+  disprove it).
 - `tag:` clusters related entries.
 
 ## Design Principles
@@ -110,7 +111,7 @@ inside its own `## Comments` section, by a human and two different agents.
 
 ## Spec Status
 
-Commentdown 1.3 is a draft convention. It is project-agnostic,
+Commentdown 1.3.1 is a draft convention. It is project-agnostic,
 plain-markdown-first, and intended to stay small.
 
 ## License

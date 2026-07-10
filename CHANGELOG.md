@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-07-10 — Commentdown 1.3.1
+
+- `falsifies:` values now start with the literal words `wrong if ...`, so the
+  line self-explains in raw markdown (`falsifies: wrong if the scanner misses a
+  live doc`). Older values without the prefix stay valid. Prefer one condition;
+  list multiples and state any/all. A FAIL may name the PASS conditions that
+  would overturn it.
+- Added `## Versioning`: patch = wording/guidance, minor = new optional syntax,
+  major = breaking (a `wrong-if:` field key is reserved for 2.0).
+- Decided empirically: the 12 falsifies lines from the 1.3 release were
+  classified (10 operative / 1 inert / 1 ceremonial) across a three-round
+  claude/codex(gpt-5.6-sol) review — thread in `dev/falsifies-review.md`.
+
 ## 2026-07-10 — Commentdown 1.3
 
 - Added `## Discovery`: `commentdown:` frontmatter recommended as explicit marker,

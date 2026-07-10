@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Print a deterministic Commentdown 1.3 comment ID.
+"""Print a deterministic Commentdown 1.3.1 comment ID.
 
 Format: cd-YYYYMMDD-HHMMSS-<author>-<slug>[-NN]
 
