@@ -2,6 +2,11 @@
 
 ## 2026-07-10 — Commentdown 1.3
 
+- Added `## Discovery`: `commentdown:` frontmatter recommended as explicit marker,
+  never required; tools must also recognise a valid entry under the reserved
+  `## Comments` heading (fenced examples don't count). Ships with
+  `scripts/cd_find.sh` implementing both branches.
+
 - Bumped spec to 1.3 (reconciled a deployed draft that had drifted ahead of the repo).
 - Added `## Order`: `commentdown.order: newest-first | oldest-first`; newest-first
   default applies only to documents declaring 1.3, older docs keep their physical

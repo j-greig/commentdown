@@ -113,6 +113,14 @@ documents. `commentdown.order` is authoritative when present.
 In either order, append-only means adding entries without rewriting prior
 entries.
 
+## Discovery
+
+`commentdown:` frontmatter is the recommended explicit discovery marker, not
+a requirement. Discovery tools must also recognize a valid Commentdown entry
+beneath the file's reserved `## Comments` heading, including its order suffix,
+so frontmatter-less documents remain discoverable. Entry-shaped text outside
+that section is an example, not evidence that the file is enabled.
+
 ## Shape
 
 ```text
