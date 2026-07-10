@@ -1,0 +1,22 @@
+name: check-docs
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: docs consistency (version strings + stale phrases)
+        run: ./scripts/check_docs.sh
+      - name: discovery scanner conformance (finds live docs, skips fenced examples)
+        run: |
+          ./scripts/cd_find.sh . | sort > found.txt
+          cat found.txt
+          # must find the known live CD docs
+          grep -qx './COMMENTDOWN.md' found.txt
+          grep -qx './dev/v1.3-release.md' found.txt
+          # must not false-positive on fenced examples
+          ! grep -q 'README.md\|AGENT-LOOP-RUNBOOK.md\|SKILL.md' found.txt
