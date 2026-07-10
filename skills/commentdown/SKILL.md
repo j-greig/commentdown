@@ -1,6 +1,6 @@
 ---
 name: commentdown
-description: "Read and write Commentdown 1.2 entries in markdown. Use when posting CD [REQ]/[CLAIM]/[DEC]/[PASS]/[WATCH]/[FAIL]/[INFO]/[ERRATA] comments, generating cd-... IDs, threading with replies:/closes:, routing via @actor:, or working in files with commentdown: frontmatter."
+description: "Read and write Commentdown 1.3 entries in markdown. Use when posting CD [REQ]/[CLAIM]/[DEC]/[PASS]/[WATCH]/[FAIL]/[INFO]/[ERRATA] comments, generating cd-... IDs, threading with replies:/closes:, routing via @actor:, or working in files with commentdown: frontmatter."
 ---
 
 # Commentdown
@@ -10,7 +10,8 @@ Append-only structured comments in markdown. One log per file under `## Comments
 ## Before writing — read the room
 
 1. Find `## Comments` in the target file.
-2. Read `commentdown:` frontmatter for `version`, `profile`, `registry.handles`, and `arbitration` rules. Routes must use exact registered handles.
+2. Read `commentdown:` frontmatter for `version`, `profile`, `order`, `registry.handles`, and `arbitration` rules. Routes must use exact registered handles.
+   **Determine entry order**: `commentdown.order` is authoritative; else the heading suffix (`(newest first)` / `(oldest first)`); a bare `## Comments` with neither keeps its existing physical order (match how prior entries were added; when unclear, append at the end). Never reorder prior entries.
 3. Scan the latest open `[REQ]` / `[WATCH]` / `[CLAIM]` and entries routed at your handle.
 4. If responding to an existing entry, set `replies:` to its ID. If the work closes a thread, also set `closes:`.
 
@@ -37,9 +38,15 @@ date -u +'cd-%Y%m%d-%H%M%S-<author>-<slug>'
 
 ## Writing the entry
 
-Append at the end of the file (under `## Comments`). Never edit a prior entry — use `[ERRATA]` with `errata_for:` for factual corrections.
+Placement follows the order you determined above. Never edit a prior entry — use `[ERRATA]` with `errata_for:` for factual corrections.
 
-Use a heredoc; **do not** use editor-style rewrites when other agents may be appending to the same file:
+- **`newest-first`** (however determined — frontmatter, heading suffix, or inferred from a legacy log's existing placement): insert the new entry directly UNDER the comments heading, above the previous latest entry, whatever the heading form (`## Comments`, `## Comments (newest first)`). `cat >>` is wrong here — use your host's edit primitive to insert after the heading line, touching nothing else. Shell-only fallback (matches any comments-heading form):
+
+```bash
+awk '1; /^## Comments/ && !done {while ((getline l < "/tmp/entry.md") > 0) print l; done=1}' file.md > file.md.tmp && mv file.md.tmp file.md
+```
+
+- **`oldest-first`** (declared, inferred, or genuinely ambiguous legacy): append at the end of the file with a heredoc; **do not** use editor-style rewrites when other agents may be appending to the same file:
 
 ```bash
 cat >> path/to/file.md <<'EOF'
@@ -54,7 +61,7 @@ tag: <topic-cluster>
 EOF
 ```
 
-> **Host-agent variant.** If your host agent forbids shell writes (e.g., Codex's `apply_patch`-only file-edit mode), use its sanctioned append/edit primitive instead — but preserve the append-only semantics exactly: a single new entry at the end of `## Comments`, no rewrite of any prior entry, immediate `git status` re-check before committing.
+> **Host-agent variant.** If your host agent forbids shell writes (e.g., Codex's `apply_patch`-only file-edit mode), use its sanctioned append/edit primitive instead — but preserve the append-only semantics exactly: a single new entry at the position the declared order requires, no rewrite of any prior entry, immediate `git status` re-check before committing.
 
 After appending, re-run `git status` and commit standalone (CD-only commits keep the audit trail clean).
 

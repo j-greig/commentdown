@@ -39,11 +39,19 @@ For the Codex-Claude stack:
 `/goal` and `/loop` are host affordances, not Commentdown syntax. Other stacks
 can use the same entries with their own schedulers or prompts.
 
+## Filing (where the comments live)
+
+Comments live IN the artifact, not in a separate file. The "work file" IS the doc under
+discussion — the PRD, plan, research doc, or spec — with a `## Comments (newest first)` section at
+its bottom. Do not silo comments into a standalone `commentdown.md` or a comments-only folder; that
+separates the discussion from the thing discussed. Keep one file until you genuinely need more (spec
+§Threading). If a repo ships a helper (e.g. `scripts/cdown.py comment <doc> …`), use it to append.
+
 ## Setup
 
-1. Pick one work file, e.g. `PROJECT-PLAN.md`.
+1. Pick one work file — the actual artifact being discussed (e.g. `dev/plans/<feature>.md`).
 2. Add `commentdown:` frontmatter with handles.
-3. Add `## Comments` at the bottom.
+3. Add `## Comments (newest first)` at the bottom (and `order: newest-first` in the frontmatter), or `(oldest first)` if you prefer the classic log.
 4. Start Codex `/goal` against that file.
 5. Start Claude `/loop` against that file when review or sidecar work is useful.
 6. Add the first `[REQ]` from maintainer or Codex.

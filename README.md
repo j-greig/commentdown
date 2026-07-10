@@ -54,7 +54,12 @@ good prose. It is the thin coordination layer under those tools.
 There is nothing to install for the markdown convention.
 
 Copy the shape from [COMMENTDOWN.md](COMMENTDOWN.md), add a `## Comments`
-section to a markdown file, and start appending entries.
+section to a markdown file, and start appending entries. Comments live in the
+artifact under discussion, never in a standalone comments file.
+
+To give local agents a stable path to the spec, run `./install.sh` — it
+symlinks `~/.commentdown` to this checkout (so the deployed spec tracks git,
+and agent docs can point at `~/.commentdown/COMMENTDOWN.md`).
 
 For another project, rename the handles, choose `minimal` or `strict`, and keep
 project-specific gates in that project's own docs. The core shape should stay
@@ -91,7 +96,7 @@ workflow profile, not core Commentdown.
 
 ## Spec Status
 
-Commentdown 1.2 is a draft convention. It is project-agnostic,
+Commentdown 1.3 is a draft convention. It is project-agnostic,
 plain-markdown-first, and intended to stay small.
 
 ## License

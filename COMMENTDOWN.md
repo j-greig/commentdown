@@ -1,8 +1,9 @@
 ---
-title: Commentdown 1.2
+title: Commentdown 1.3
 commentdown:
-  version: "1.2"
+  version: "1.3"
   profile: minimal
+  order: newest-first
   registry:
     handles:
       maintainer: {kind: human, role: arbitrator}
@@ -12,7 +13,7 @@ commentdown:
       spec_changes: maintainer
 ---
 
-# Commentdown 1.2
+# Commentdown 1.3
 
 Append-only structured comments in markdown for multi-actor project work.
 
@@ -22,7 +23,9 @@ claims honest; `tag:` clusters topics.
 
 ## Agent Start
 
-1. Find `## Comments`.
+1. Find `## Comments`; determine entry order per the Order section
+   (`commentdown.order` is authoritative; a document without it keeps its
+   existing physical order).
 2. Read `commentdown.registry.handles`.
 3. Scan latest `[REQ]`, `[WATCH]`, open `[CLAIM]`, and entries routed to you.
 4. If doing work, append `[CLAIM]` before edits.
@@ -53,6 +56,8 @@ Conditionally required:
 
 - `@<actor>:` on `[REQ]`, `[CLAIM]`, `[DEC]`;
 - `errata_for:` on `[ERRATA]`.
+
+Placeholder values such as `TODO` do not satisfy `falsifies:`.
 
 Optional: `status:`, `refs:`, `replies:`, `closes:`, `cc:`, `tldr:`, `due_by:`.
 
@@ -85,7 +90,28 @@ default; required fields belong in profiles.
 ## Entry Locus
 
 All entries live under one reserved `## Comments` heading at the bottom of the
-file.
+file. The heading mirrors the sort order inline, e.g. `## Comments (newest
+first)`; `commentdown.order` in frontmatter is authoritative (see Order).
+
+Entries live in the Markdown artifact under discussion, not in a dedicated
+comments-only file or folder.
+
+## Order
+
+`commentdown.order: newest-first | oldest-first`. Default for documents
+declaring Commentdown 1.3: `newest-first`. Documents from earlier versions with
+no `order` retain their existing physical order. On upgrade, set `order` to
+match that order; never reorder prior entries.
+
+- `newest-first`: insert new entries directly under the comments heading.
+- `oldest-first`: append new entries after the last entry.
+
+The comments heading should mirror the setting as `## Comments (newest first)`
+or `## Comments (oldest first)`. A bare `## Comments` remains valid in older
+documents. `commentdown.order` is authoritative when present.
+
+In either order, append-only means adding entries without rewriting prior
+entries.
 
 ## Shape
 
@@ -187,8 +213,9 @@ print(f"cd-{datetime.now(UTC):%Y%m%d-%H%M%S}-{author}-{slug}{suffix}")
 
 ```yaml
 commentdown:
-  version: "1.2"
+  version: "1.3"
   profile: minimal
+  order: newest-first
   registry:
     handles:
       maintainer: {kind: human, role: arbitrator}
@@ -247,8 +274,9 @@ Never edit prior entries except secret redaction or factual correction.
 
 `[ERRATA]` appends a correction and requires `errata_for:`.
 
-File order is the physical log. Tools may present thread order by `replies:`
-and ID timestamp. Do not require sorted rewrites after merges.
+Entry order follows `commentdown.order` (see Order; newest-first default).
+Tools may present thread order by `replies:` and ID timestamp. Do not require
+sorted rewrites after merges.
 
 ## Privacy And Trust
 
@@ -276,7 +304,8 @@ Git is optional.
 ## Common Mistakes
 
 - No `## Comments`.
-- Vague `falsifies:`.
+- Standalone comments file or comments-only folder detached from the artifact.
+- Vague or placeholder `falsifies:`.
 - Route in body but no `@<actor>:` line.
 - `[REQ]`, `[CLAIM]`, or `[DEC]` without primary route.
 - `cc:` treated as work assignment.
@@ -305,7 +334,7 @@ Future tooling, not required for adoption:
 For use, stop here. `## Comments` below illustrates the format without
 extending the spec.
 
-## Comments
+## Comments (newest first)
 
 ## [INFO] cd-20260509-131945-agent-driver-spec-shape · Spec comments stay sparse
 Commentdown comments should capture durable coordination, not narrate the repo.

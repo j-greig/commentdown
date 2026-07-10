@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-07-10 — Commentdown 1.3
+
+- Bumped spec to 1.3 (reconciled a deployed draft that had drifted ahead of the repo).
+- Added `## Order`: `commentdown.order: newest-first | oldest-first`; newest-first
+  default applies only to documents declaring 1.3, older docs keep their physical
+  order (compat wording from gpt-5.6-sol review, cd-20260710-072345-codex-spec-review).
+- Entry Locus: entries live in the artifact under discussion, never a dedicated
+  comments-only file/folder; matching Common Mistakes bullet (recurring field failure).
+- `falsifies:` placeholder values (e.g. TODO) declared non-satisfying; helpers must
+  fail rather than auto-fill. (Reference helper implementing the guard lives in the
+  adopting repo — wibandwob-heartbeat `scripts/cdown.py` — not in this repo.)
+- Runbook: new "Filing (where the comments live)" section.
+- Added `install.sh` — canonical install symlinks `~/.commentdown` to the repo
+  checkout so the deployed spec can never drift from git again.
+- Multi-actor discussion for this release: `dev/v1.3-release.md`.
+
+
 ## 2026-05-09 — Standards pass
 
 - Kept spec frontmatter, added principles/compatibility, tightened wording.
