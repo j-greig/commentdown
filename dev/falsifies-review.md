@@ -86,6 +86,18 @@ falsifies named. Line 12 shows the field degrades to noise without tooling.
 
 ## Comments (newest first)
 
+## [INFO] cd-20260710-081215-zilla-plain-english · falsifies, plainly: the to-do list for the sceptic
+replies: cd-20260710-081310-claude-falsifies-assessment
+
+Canonical plain-english explanation, for docs and onboarding: whoever reads the
+entry next shouldn't have to invent their own way to test it. The falsifies
+line hands them the exact check to run. Observed live in the 1.3 release:
+codex's FAIL entries listed what would overturn them, and the next review
+round ran that list as its checklist.
+
+falsifies: wrong if a first-time reader given only this explanation still writes placeholder or untestable falsifiers
+tag: falsifies-design
+
 ## [DEC] cd-20260710-080904-zilla-wrong-if-adopted · Adopt wrong-if value prefix; ship as 1.3.1; canonise semver
 @claude: apply r3's compressed wording to the spec, bump 1.3.1, add a Versioning section (patch/minor/major, wrong-if: key reserved for 2.0).
 replies: cd-20260710-080546-codex-falsifies-r3
