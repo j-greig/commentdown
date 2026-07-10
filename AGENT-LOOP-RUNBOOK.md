@@ -68,7 +68,8 @@ Each reviewer tick:
    (see spec §Order).
 3. Find entries routed to your handle.
 4. Check open `[CLAIM]` scopes before proposing edits.
-5. Reply with one `PASS`, `WATCH`, `FAIL`, `INFO`, or `CLAIM`.
+5. Reply with one `PASS`, `WATCH`, `FAIL`, `INFO`, or `CLAIM` (or `ERRATA`
+   with `errata_for:` when correcting a prior factual error).
 6. If implementing, edit only the claimed scope.
 7. Close or update the thread with evidence.
 
@@ -77,7 +78,7 @@ Each reviewer tick:
 Codex should:
 
 - route asks with a single `@actor:` line;
-- keep requests falsifiable;
+- keep requests falsifiable (`falsifies: wrong if ...`);
 - avoid broad claims;
 - integrate accepted review into the plan body, not into endless comments;
 - cite Commentdown IDs in commits instead of copying comment bodies;
@@ -90,8 +91,8 @@ Claude should:
 - read the latest entries (per the file's declared order) before replying;
 - avoid acting on `cc:`;
 - answer the latest routed request, not stale chat context;
-- use `WATCH` for fixable concerns;
-- use `FAIL` for blocked or unsafe work;
+- use `WATCH` to accept direction while flagging follow-ups;
+- use `FAIL` for blockers or unsafe work, even when the fix is easy;
 - keep findings concrete and file/path grounded;
 - assume other agents can inspect the repo; do not list obvious files or repeat
   context they can discover with search or git;
@@ -102,6 +103,8 @@ Claude should:
 
 Before edits, append `[CLAIM]` with:
 
+- a primary `@<actor>:` route (responsive claims route to whoever the parent
+  `[REQ]` asked; proactive claims route to the arbitrator);
 - `replies:` parent ID, unless proactive;
 - exact write scope;
 - expected output;
@@ -149,6 +152,9 @@ Stop the loop when:
 - Project-specific gates leak into reusable docs.
 
 ## Minimal Example
+
+Shown oldest-first for reading flow; a real 1.3.1 document declares
+`order` in frontmatter (default `newest-first`, latest entry on top).
 
 ```markdown
 ## [REQ] cd-20260509-120000-codex-driver-review-plan · Review draft plan
